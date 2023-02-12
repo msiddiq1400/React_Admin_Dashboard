@@ -2,8 +2,11 @@ import './new.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import { DriveFolderUploadOutlined } from '@mui/icons-material';
+import { useState } from 'react';
 
 const New = ({title, inputs}) => {
+  const [file, setFile] = useState("");
+
   return (
     <div className='new'>
       <Sidebar />
@@ -14,7 +17,7 @@ const New = ({title, inputs}) => {
         </div>
         <div className="bottom">
           <div className="left">
-            <img src="https://picsum.photos/600/800" alt="img" />
+            <img src={file ? URL.createObjectURL(file) : "https://picsum.photos/600/800" } alt="img" />
           </div>
           <div className="right">
             <form>
@@ -22,7 +25,7 @@ const New = ({title, inputs}) => {
                 <label htmlFor='file'>
                   Image: <DriveFolderUploadOutlined className='icon'/>
                 </label>
-                <input type='file' id='file' hidden />
+                <input type='file' id='file' hidden onChange={(e) => setFile(e.target.files[0])}/>
               </div>
               {inputs.map((input) => {
                 return (
