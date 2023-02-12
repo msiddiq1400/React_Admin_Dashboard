@@ -11,12 +11,15 @@ import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined';
 import SettingsApplicationsOutlinedIcon from '@mui/icons-material/SettingsApplicationsOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
     <div className='sidebar'>
         <div className='top'>
-            <span className='logo'>Admin Panel</span>
+            <Link to="/" style={{textDecoration: "none"}}>
+                <span className='logo'>Admin Panel</span>
+            </Link>
         </div>
         <hr/>
         <div className='center'>
@@ -24,8 +27,8 @@ const Sidebar = () => {
                 <p className="title">MAIN</p>
                 <li><DashboardIcon className='icon'/><span>Dashboard</span></li>
                 <p className="title">LISTS</p>
-                <li><PersonIcon className='icon'/><span>Users</span></li>
-                <li><StoreIcon className='icon'/><span>Products</span></li>
+                <li><Link to="/users" style={{textDecoration: "none"}}><PersonIcon className='icon'/><span>Users</span></Link></li>
+                <li><Link to="/products" style={{textDecoration: "none"}}><StoreIcon className='icon'/><span>Products</span></Link></li>
                 <li><CreditCardIcon className='icon'/><span>Orders</span></li>
                 <li><LocalShippingIcon className='icon'/><span>Delivery</span></li>
                 <p className="title">USEFUL LINKS</p>
@@ -42,12 +45,8 @@ const Sidebar = () => {
         </div>
         <hr/>
         <div className='bottom'>
-            <div className="colorOption">
-
-            </div>
-            <div className="colorOption">
-                
-            </div>
+            <div className="colorOption"></div>
+            <div className="colorOption"></div>
         </div>
     </div>
   )
